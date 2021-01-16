@@ -12,7 +12,7 @@
                     <RowDefinition Height="auto" />
                  
                 </Grid.RowDefinitions>
-                <StackLayout x:Name="trackImageStack"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="0" Margin="0, 20, 0, -90">
+                <StackLayout  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="0" Margin="0, 20, 0, -90">
                     <Image Source="loaning.png" Scale="0.5" />
                 </StackLayout>
                 <StackLayout Spacing="50" VerticalOptions="CenterAndExpand" Grid.Row="1" Padding="40,0,40,0">
@@ -23,7 +23,7 @@
                
                 </StackLayout>
                <StackLayout Grid.Row="3" VerticalOptions="EndAndExpand">
-                    <Label Text="Don't have an account? Notify Us" HorizontalTextAlignment="Center">
+                    <Label Text="Don't have an account? Notify Us" HorizontalTextAlignment="Center" TextColor="#996515">
                         <Label.GestureRecognizers>
                         </Label.GestureRecognizers>
                     </Label>

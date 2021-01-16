@@ -13,7 +13,7 @@
                  
                 </Grid.RowDefinitions>
 
-             <StackLayout x:Name="ImageStack"  HorizontalOptions="CenterAndExpand" Grid.Row="0" Margin="30">
+             <StackLayout HorizontalOptions="CenterAndExpand" Grid.Row="0" Margin="30">
                     <Image Source="loaning.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="100"/>
                 </StackLayout>
 
@@ -21,38 +21,51 @@
                 <StackLayout Spacing="20" VerticalOptions="CenterAndExpand" Grid.Row="0" Padding="20,150,20,-10" >
                 <Label Text="Please fill below" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="#996515" FontAttributes="Bold" FontSize="15"/>
 
-                     <Entry Text="{Binding FullName}"
-                       Placeholder="Full Name" BackgroundColor="White" TextColor="#0059B2" HeightRequest="40"  x:Name="FullName" />
+                     <Entry Text="{Binding LastName}"
+                       Placeholder="Last Name" PlaceholderColor="Gray" x:Name="LastName" BackgroundColor="White" TextColor="#996515" HeightRequest="50"   />
 
-                     <Entry Text="{Binding Section}"
-                       Placeholder="Section"  x:Name="Section" BackgroundColor="White" TextColor="#0059B2" HeightRequest="40"/>
+                     <Entry Text="{Binding otherNames}"
+                       Placeholder="Other Names" PlaceholderColor="Gray"  x:Name="otherNames" BackgroundColor="White" TextColor="#996515" HeightRequest="50"/>
 
-                     <Entry Text="{Binding Email}"
-                       Placeholder="Email"  x:Name="Email" BackgroundColor="White" TextColor="#0059B2" HeightRequest="40"/>
+                     <Entry Text="{Binding MDA}"
+                       Placeholder="MDA" PlaceholderColor="Gray"  x:Name="MDA" BackgroundColor="White" TextColor="#996515" HeightRequest="50"/>
 
-                     <Entry Text="{Binding Phone}"
-                       Placeholder="Phone"  x:Name="Phone" BackgroundColor="White" TextColor="#0059B2" HeightRequest="50"/>
+                     <Entry Text="{Binding OracleIPPIS}"
+                       Placeholder="Oracel / IPPIS Number" PlaceholderColor="Gray"  x:Name="OracleIPPIS" BackgroundColor="White" TextColor="#996515" HeightRequest="50"/>
+
+                   <DatePicker Date="{Binding DOB}"
+                               x:Name="DOB" Format="D"
+                    BackgroundColor ="White" TextColor="#996515" HeightRequest="50"/>
+
+                     <Entry Text="{Binding GrossPay}"
+                       Placeholder="Gross Pay" PlaceholderColor="Gray"  x:Name="GrossPay" BackgroundColor="White" TextColor="#996515" HeightRequest="50" Keyboard="Numeric"/>
+
+                    <Entry Text="{Binding YearsinService}"
+                       Placeholder="No Years In Service" PlaceholderColor="Gray"  x:Name="YearsinService" BackgroundColor="White" TextColor="#996515" HeightRequest="50" Keyboard="Numeric"/>
+
+                    <Entry Text="{Binding NetPay}"
+                       Placeholder="Net Pay" PlaceholderColor="Gray"  x:Name="NetPay" BackgroundColor="White" TextColor="#996515" HeightRequest="50" Keyboard="Numeric"/>
+
+                     <Entry Text="{Binding AccNo}"
+                       Placeholder="Bank Account Number" PlaceholderColor="Gray"  x:Name="AccNo" BackgroundColor="White" TextColor="#996515" HeightRequest="50"/>
+
+                    <Entry Text="{Binding LoanAmount}"
+                       Placeholder="Loan Amount" PlaceholderColor="Gray"  x:Name="LoanAmount" BackgroundColor="White" TextColor="#996515" HeightRequest="50" Keyboard="Numeric"/>
+
+                     <Entry Text="{Binding RepaymentMonths}"
+                       Placeholder="No of Months for Repayment" PlaceholderColor="Gray"  x:Name="RepaymentMonths" BackgroundColor="White" TextColor="#996515" HeightRequest="50" Keyboard="Numeric"/>
+
+                    <Entry Text="{Binding Phone}"
+                       Placeholder="Phone Number" PlaceholderColor="Gray"  x:Name="Phone" BackgroundColor="White" TextColor="#996515" HeightRequest="50"/>
+
+                    <Entry Text="{Binding Email}"
+                       Placeholder="Email" PlaceholderColor="Gray"  x:Name="Email" BackgroundColor="White" TextColor="#996515" HeightRequest="50"/>
 
 
-                 <!--   <Entry Text="{Binding Username}"
-                       Placeholder="Username" BackgroundColor="White" TextColor="#0059B2" HeightRequest="40"/>
-                    -->
 
-                    <Entry Text="{Binding Password}"
-                       Placeholder="Password"
-                       IsPassword="True"  x:Name="Password" BackgroundColor="White" TextColor="#0059B2" HeightRequest="40"
-                      />
 
-                <!--        <Entry Text="{Binding confirmPassword}"
-                       Placeholder="Confirm Password"
-                       IsPassword="True" BackgroundColor="White" TextColor="#0059B2" HeightRequest="40"
-                      />
-              <Label Text="Invalid credentials entered" 
-                       IsVisible="{Binding AreCredentialsInvalid}" 
-                       TextColor="Red" /> -->
-            
              <Button Text="Sign Up" Grid.Row="2"
-                           x:Name="Register" 
+                           x:Name="Submit" Clicked="Submit_Tapped"
                         BorderWidth="1" BorderColor="#996515" BackgroundColor="white" TextColor="#996515" FontAttributes="Bold" FontSize="20" />
                        </StackLayout>
 

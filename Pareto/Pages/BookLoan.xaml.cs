@@ -11,5 +11,11 @@ namespace Pareto.Pages
         {
             InitializeComponent();
         }
+
+        async void Submit_Tapped(object sender, System.EventArgs e)
+        {
+            await DisplayAlert("Success!", "Loan Booked successfully. You will be contacted for further actions", "OK");
+            await Navigation.PushAsync(new Landing());
+        }
     }
 }
