@@ -14,7 +14,7 @@ namespace Pareto
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new Pages.Landing());
         }
 
         protected override void OnStart()

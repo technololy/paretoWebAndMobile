@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Pareto.Pages.Landing" NavigationPage.HasNavigationBar="False">
+   <ScrollView BackgroundColor="#DCDCDC">
+
+           <Grid>
+            <Image Source="lbg.jpeg" Aspect="AspectFill" Opacity="0.1"/>
+            <Grid RowSpacing="60" ColumnSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                 
+                </Grid.RowDefinitions>
+                <StackLayout x:Name="trackImageStack"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="0" Margin="0, 20, 0, -90">
+                    <Image Source="loaning.png" Scale="0.5" />
+                </StackLayout>
+                <StackLayout Spacing="50" VerticalOptions="CenterAndExpand" Grid.Row="1" Padding="40,0,40,0">
+                    <Label Text="Welcome to the Loan App" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="36" TextColor="#996515" FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout Grid.Row="2" Spacing="30" Margin="0,0,0,0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Button Text="Book a Loan" WidthRequest="300" x:Name="signup" Clicked="Signup_Tapped" BorderWidth="1" BorderColor="#996515" BackgroundColor="Transparent" TextColor="#996515" FontAttributes="Bold" FontSize="20"/>
+               
+                </StackLayout>
+               <StackLayout Grid.Row="3" VerticalOptions="EndAndExpand">
+                    <Label Text="Don't have an account? Notify Us" HorizontalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Grid>
+        </Grid>
+  
+   </ScrollView>
+</ContentPage>

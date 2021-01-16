@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Pareto.Pages.BookLoan" NavigationPage.HasNavigationBar="False">
+   <ScrollView BackgroundColor="#DCDCDC">
+
+           <Grid>
+            <Image Source="lbg.jpeg" Aspect="AspectFill" Opacity="0.1"/>
+            <Grid RowSpacing="60" ColumnSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                 
+                </Grid.RowDefinitions>
+
+             <StackLayout x:Name="ImageStack"  HorizontalOptions="CenterAndExpand" Grid.Row="0" Margin="30">
+                    <Image Source="loaning.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="100"/>
+                </StackLayout>
+
+
+                <StackLayout Spacing="20" VerticalOptions="CenterAndExpand" Grid.Row="0" Padding="20,150,20,-10" >
+                <Label Text="Please fill below" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="#996515" FontAttributes="Bold" FontSize="15"/>
+
+                     <Entry Text="{Binding FullName}"
+                       Placeholder="Full Name" BackgroundColor="White" TextColor="#0059B2" HeightRequest="40"  x:Name="FullName" />
+
+                     <Entry Text="{Binding Section}"
+                       Placeholder="Section"  x:Name="Section" BackgroundColor="White" TextColor="#0059B2" HeightRequest="40"/>
+
+                     <Entry Text="{Binding Email}"
+                       Placeholder="Email"  x:Name="Email" BackgroundColor="White" TextColor="#0059B2" HeightRequest="40"/>
+
+                     <Entry Text="{Binding Phone}"
+                       Placeholder="Phone"  x:Name="Phone" BackgroundColor="White" TextColor="#0059B2" HeightRequest="50"/>
+
+
+                 <!--   <Entry Text="{Binding Username}"
+                       Placeholder="Username" BackgroundColor="White" TextColor="#0059B2" HeightRequest="40"/>
+                    -->
+
+                    <Entry Text="{Binding Password}"
+                       Placeholder="Password"
+                       IsPassword="True"  x:Name="Password" BackgroundColor="White" TextColor="#0059B2" HeightRequest="40"
+                      />
+
+                <!--        <Entry Text="{Binding confirmPassword}"
+                       Placeholder="Confirm Password"
+                       IsPassword="True" BackgroundColor="White" TextColor="#0059B2" HeightRequest="40"
+                      />
+              <Label Text="Invalid credentials entered" 
+                       IsVisible="{Binding AreCredentialsInvalid}" 
+                       TextColor="Red" /> -->
+            
+             <Button Text="Sign Up" Grid.Row="2"
+                           x:Name="Register" 
+                        BorderWidth="1" BorderColor="#996515" BackgroundColor="white" TextColor="#996515" FontAttributes="Bold" FontSize="20" />
+                       </StackLayout>
+
+
+            </Grid>
+        </Grid>
+  
+   </ScrollView>
+</ContentPage>
