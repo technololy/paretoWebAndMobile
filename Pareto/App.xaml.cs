@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Pareto.Services;
 using Pareto.Views;
+using MonkeyCache.SQLite;
 
 namespace Pareto
 {
@@ -19,6 +20,8 @@ namespace Pareto
 
         protected override void OnStart()
         {
+            Barrel.ApplicationId = "your_unique_name_here";
+
         }
 
         protected override void OnSleep()
