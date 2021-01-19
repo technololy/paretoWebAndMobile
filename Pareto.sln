@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pareto.iOS", "Pareto.iOS\Pa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pareto", "Pareto\Pareto.csproj", "{1B20D8C9-0B98-4326-BAA5-AFAEBBE8DE57}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParetoWebAppBlazor", "ParetoWebAppBlazor\ParetoWebAppBlazor.csproj", "{B1FEB14C-2D78-42FF-8543-10EE5A3E5D2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,18 @@ Global
 		{1B20D8C9-0B98-4326-BAA5-AFAEBBE8DE57}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{1B20D8C9-0B98-4326-BAA5-AFAEBBE8DE57}.Release|iPhone.ActiveCfg = Release|Any CPU
 		{1B20D8C9-0B98-4326-BAA5-AFAEBBE8DE57}.Release|iPhone.Build.0 = Release|Any CPU
+		{B1FEB14C-2D78-42FF-8543-10EE5A3E5D2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1FEB14C-2D78-42FF-8543-10EE5A3E5D2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1FEB14C-2D78-42FF-8543-10EE5A3E5D2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1FEB14C-2D78-42FF-8543-10EE5A3E5D2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1FEB14C-2D78-42FF-8543-10EE5A3E5D2A}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{B1FEB14C-2D78-42FF-8543-10EE5A3E5D2A}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{B1FEB14C-2D78-42FF-8543-10EE5A3E5D2A}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{B1FEB14C-2D78-42FF-8543-10EE5A3E5D2A}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{B1FEB14C-2D78-42FF-8543-10EE5A3E5D2A}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{B1FEB14C-2D78-42FF-8543-10EE5A3E5D2A}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{B1FEB14C-2D78-42FF-8543-10EE5A3E5D2A}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{B1FEB14C-2D78-42FF-8543-10EE5A3E5D2A}.Release|iPhone.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

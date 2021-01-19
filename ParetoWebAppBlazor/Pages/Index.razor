@@ -1,0 +1,16 @@
+﻿@page "/"
+@inject NavigationManager NavMgr
+<h1>Welcome to Pareto Finance Loan app</h1>
+
+
+<button class="btn btn-primary" @onclick="StartProcess">Apply for a loan</button>
+
+@*<SurveyPrompt Title="How is Blazor working for you?" />*@
+@code {
+
+
+    private void StartProcess()
+    {
+        NavMgr.NavigateTo("Counter");
+    }
+}
