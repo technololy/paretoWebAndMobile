@@ -1,0 +1,213 @@
+@page "/loanform"
+@using System.ComponentModel.DataAnnotations
+@using System.Text.Json
+@inject IJSRuntime JSRuntime;
+@inject NotificationService NotificationService
+@inject NavigationManager NavMgr
+
+
+<div>
+    <img src="/Images/logosav.png" class="img-thumbnail rounded mx-auto d-block" asp-append-version="true" width="200px" />
+
+</div>
+<div class="card m-3">
+    <h4 class="card-header">Please fill all fields below</h4>
+    <div class="card-body">
+        <EditForm EditContext="@editContext" OnValidSubmit="HandleValidSubmit" @onreset="HandleReset">
+
+            <DataAnnotationsValidator />
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Title</label>
+                    <InputSelect @bind-Value="model.title" class="form-control">
+                        <option value=""></option>
+                        <option value="Mr">Mr</option>
+                        <option value="Mrs">Mrs</option>
+                        <option value="Miss">Miss</option>
+                        <option value="Ms">Ms</option>
+                    </InputSelect>
+                    <ValidationMessage For="@(() => model.title)" />
+                </div>
+                <div class="form-group col-3">
+                    <label>First Name</label>
+                    <InputText @bind-Value="model.firstName" class="form-control" />
+                    <ValidationMessage For="@(() => model.firstName)" />
+                </div>
+                <div class="form-group col-3">
+                    <label>Middle Name</label>
+                    <InputText @bind-Value="model.otherNames" class="form-control" />
+                    <ValidationMessage For="@(() => model.otherNames)" />
+                </div>
+                <div class="form-group col-3">
+                    <label>Last Name</label>
+                    <InputText @bind-Value="model.lastName" class="form-control" />
+                    <ValidationMessage For="@(() => model.lastName)" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Date of Birth</label>
+                    <InputDate @bind-Value="model.dateOfBirthOrig" class="form-control" />
+                    <ValidationMessage For="@(() => model.dateOfBirthOrig)" />
+                </div>
+                <div class="form-group col">
+                    <label>Email</label>
+                    <InputText @bind-Value="model.emailAddress" class="form-control" />
+                    <ValidationMessage For="@(() => model.emailAddress)" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-4">
+                    <label>MDA Number</label>
+
+                    <InputText @bind-Value="model.mdaNo" class="form-control" />
+                    <ValidationMessage For="@(() => model.mdaNo)" />
+                </div>
+                <div class="form-group col-4">
+                    <label>Ippis Number</label>
+                    <InputText @bind-Value="model.ippisNo" class="form-control" />
+                    <ValidationMessage For="@(() => model.ippisNo)" />
+                </div>
+                <div class="form-group col-4">
+                    <label>Gross Pay</label>
+                    <InputNumber @bind-Value="model.grossPay" class="form-control" />
+                    <ValidationMessage For="@(() => model.grossPay)" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-4">
+                    <label>Years in service</label>
+
+                    <InputText @bind-Value="model.yearsInService" class="form-control" />
+                    <ValidationMessage For="@(() => model.yearsInService)" />
+                </div>
+                <div class="form-group col-4">
+                    <label>Bank Account Number</label>
+                    <InputText @bind-Value="model.bankAcctNo" class="form-control" />
+                    <ValidationMessage For="@(() => model.bankAcctNo)" />
+                </div>
+                <div class="form-group col-4">
+                    <label>Loan Amount</label>
+                    <InputNumber @bind-Value="model.loanAmount" class="form-control" />
+                    <ValidationMessage For="@(() => model.loanAmount)" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-4">
+                    <label>Phone number</label>
+
+                    <InputText @bind-Value="model.telephoneNo" class="form-control" />
+                    <ValidationMessage For="@(() => model.telephoneNo)" />
+                </div>
+
+            </div>
+
+
+            <div class="form-group form-check">
+                <InputCheckbox @bind-Value="model.AcceptTerms" id="acceptTerms" class="form-check-input" />
+                <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
+                <ValidationMessage For="@(() => model.AcceptTerms)" />
+            </div>
+            <div class="text-center">
+                <div class="text-center">
+                    <button type="submit" disabled=@IsProcessing onclick="SubmitLoan" class="btn btn-primary">Submit loan application</button>
+                    <img source="@Spinner" disabled=@IsProcessing />
+                </div>
+
+                @* <RadzenButton ButtonType="ButtonType.Submit"  class="btn btn-primary" Text="@(IsProcessing ? null : Text)" Click="SubmitLoan" Image="@(IsProcessing ? Spinner : null)" Disabled="@IsProcessing" @attributes="@AdditionalAttributes" />  *@
+
+
+
+                @* <button type="reset" class="btn btn-secondary">Cancel</button> *@
+
+                @* <div class="form-row">
+                        <div class="form-group col">
+                            <label>Password</label>
+                            <InputText @bind-Value="model.Password" type="password" class="form-control" />
+                            <ValidationMessage For="@(() => model.Password)" />
+                        </div>
+                        <div class="form-group col">
+                            <label>Confirm Password</label>
+                            <InputText @bind-Value="model.ConfirmPassword" type="password" class="form-control" />
+                            <ValidationMessage For="@(() => model.ConfirmPassword)" />
+                        </div>
+                    </div> *@
+
+
+            </div>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public string Text { get; set; } = "Submit loan application";
+
+    [Parameter]
+    public string Spinner { get; set; } = "/Images/Dual Ring-1s-200px.svg";
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public IDictionary<string, object>? AdditionalAttributes { get; set; }
+
+    public bool IsProcessing { get; private set; }
+
+
+    private Data.LoanSubmitModel model = new Data.LoanSubmitModel();
+
+    private EditContext editContext;
+
+    protected override void OnInitialized()
+    {
+        editContext = new EditContext(model);
+    }
+    private void HandleValidSubmit()
+    {
+        // var modelJson = JsonSerializer.Serialize(model, new JsonSerializerOptions { WriteIndented = true });
+        //JSRuntime.InvokeVoidAsync("alert", $"SUCCESS!! :-)\n\n{modelJson}");
+        SubmitLoan();
+    }
+
+    private void HandleReset()
+    {
+        model = new Data.LoanSubmitModel();
+        editContext = new EditContext(model);
+    }
+    async void SubmitLoan()
+    {
+        try
+        {
+            IsProcessing = true;
+            StateHasChanged();
+
+            Services.APIService api = new Services.APIService();
+            var result = await api.Post<Data.LoanSubmitResponse>(model, ParetoWebAppBlazor.Services.Settings.AppSettings.ParetoBaseURL, null);
+            if (result.isSuccess)
+            {
+                NotificationService.Notify(new NotificationMessage { Summary = "Success", Detail = result.model.message, Severity = NotificationSeverity.Success, Duration = 4000, Style = "position: absolute; left: -1000px;" });
+                await JSRuntime.InvokeVoidAsync("alert", $"SUCCESS!!{result.model.message} ");
+
+                NavMgr.NavigateTo("Index");
+
+            }
+            else
+            {
+                NotificationService.Notify(new NotificationMessage { Summary = "Error", Detail = "Error", Duration = 4000, Severity = NotificationSeverity.Error, Style = "position: absolute; left: -1000px;" });
+                await JSRuntime.InvokeVoidAsync("alert", $"Error!!Unable to save loan request ");
+            }
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine(ex);
+        }
+        finally
+        {
+            IsProcessing = false;
+            StateHasChanged();
+
+        }
+    }
+
+}
+

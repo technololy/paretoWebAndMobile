@@ -10,8 +10,9 @@ a, .btn-link {
 
 .btn-primary {
     color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+    background-color: #996515;
+    border-color: #996515;
+    padding: 20;
 }
 
 app {
@@ -47,7 +48,7 @@ app {
 }
 
 .sidebar {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    background-image: linear-gradient(180deg, rgb(82, 103, 5) 0%, #996515 70%);
 }
 
     .sidebar .top-row {

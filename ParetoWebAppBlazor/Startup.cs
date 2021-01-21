@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ParetoWebAppBlazor.Data;
+using Radzen;
 
 namespace ParetoWebAppBlazor
 {
@@ -29,6 +30,11 @@ namespace ParetoWebAppBlazor
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+            services.AddScoped<DialogService>();
+            services.AddScoped<NotificationService>();
+            services.AddScoped<TooltipService>();
+            services.AddScoped<ContextMenuService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

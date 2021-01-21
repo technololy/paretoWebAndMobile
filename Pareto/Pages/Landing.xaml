@@ -42,7 +42,7 @@
                         x:Name="signup"
                         Clicked="Signup_Tapped"
                         FontAttributes="Bold"
-                        Text="Book a Loan" />
+                        Text="Apply for a Loan" />
 
                 </StackLayout>
                 <StackLayout Grid.Row="3" VerticalOptions="EndAndExpand">
